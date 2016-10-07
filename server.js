@@ -1,7 +1,8 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var pgp = require("pg-promise")();
-var request = require('request');
+var express = require('express'),
+   bodyParser = require('body-parser'),
+   pgp = require("pg-promise")(),
+   request = require('request');
+
 
 var cn = {
     host:'localhost',
