@@ -8,7 +8,7 @@ var app = express();
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.set('views', __dirname + '/views');
+app.set('views', './views');
 app.set('view engine', 'jade');
 
 // require in the routes
