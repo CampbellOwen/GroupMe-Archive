@@ -11,7 +11,11 @@ app.use(express.static('public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
-require('./routes')(app, db);
+// require in the routes
+var apiRouter = require('./routes')(express, db);
+
+// sets all routes in the apiRoute to be prefixed by /api, that way you don't have to type /api in front of everything
+app.use('/api', apiRouter);
 
 // leave this last, after all other routes - makes sure hitting '/' will always work and not get hijacked by the apiRouter
 // if the front end framework has a router it might be worth hitting '*' and routing at the front end
