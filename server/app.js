@@ -22,7 +22,7 @@ app.use('/api', apiRouter);
 // if the front end framework has a router it might be worth hitting '*' and routing at the front end
 app.get('/', function (req, res) {
     if (req.query.access_token == undefined) {
-        res.sendFile('public/html/login.html', {root: __dirname});
+        res.sendFile('html/login.html', {root: './public'});
     }
     else {
         res.render('index', {token: req.query.access_token});
