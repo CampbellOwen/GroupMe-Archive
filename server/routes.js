@@ -1,3 +1,5 @@
+var request = require('request');
+
 module.exports = function(express, db) {
 
    var router = express.Router();

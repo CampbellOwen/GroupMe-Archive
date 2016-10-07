@@ -1,7 +1,6 @@
 // all these required modules are declared under one var - much tidier
 var express = require('express'),
    bodyParser = require('body-parser'),
-   request = require('request'),
    db = require('./db'),
    port = process.env.PORT || 8080; // this sets express to take the environments port rather than hardcoding one - makes things like heroku deployment easier
 
