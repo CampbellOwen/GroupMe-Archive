@@ -1,7 +1,8 @@
 var express = require('express'),
    bodyParser = require('body-parser'),
    pgp = require("pg-promise")(),
-   request = require('request');
+   request = require('request'),
+   port = process.env.PORT || 8080;
 
 
 var cn = {
@@ -64,10 +65,6 @@ app.get('/api/messages', function (req, res) {
         });
 });
 
-var server = app.listen(8080, function() {
-    var host = server.address().address;
-    var port = server.address().port;
-
-    console.log("GroupMe Archive - listening at http://%s:%s", host, port);
-});
-
+app.listen(port, function() {
+   console.log('GroupMe Archive - listening on port ' + port);
+})
