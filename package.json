@@ -2,7 +2,7 @@
   "name": "groupmearchive",
   "version": "1.0.0",
   "description": "Archive GroupMe group chats",
-  "main": "server.js",
+  "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
