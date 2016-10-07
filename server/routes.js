@@ -1,15 +1,8 @@
-module.exports = function(app, db) {
-   
-   app.get('/', function (req, res) {
-       if (req.query.access_token == undefined) {
-           res.sendFile('public/html/login.html', {root: __dirname});
-       }
-       else {
-           res.render('index', {token: req.query.access_token});
-       }
-   });
+module.exports = function(express, db) {
 
-   app.get('/api/groups', function (req, res) {
+   var router = express.Router();
+
+   router.get('/groups', function (req, res) {
        if (!req.query.token) {
            res.status(500);
            res.send({"Error": "Please provide an access token"});
@@ -29,7 +22,7 @@ module.exports = function(app, db) {
 
    });
 
-   app.get('/api/messages', function (req, res) {
+   router.get('/messages', function (req, res) {
        if(!req.query.group) {
            res.status(500);
            res.send({"Error": "Please provide a group id"});
@@ -43,5 +36,7 @@ module.exports = function(app, db) {
                console.log(data);
            });
    });
+
+   return router;
 
 }
