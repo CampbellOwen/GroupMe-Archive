@@ -1,8 +1,9 @@
+// all these required modules are declared under one var - much tidier
 var express = require('express'),
    bodyParser = require('body-parser'),
    request = require('request'),
    db = require('./db'),
-   port = process.env.PORT || 8080;
+   port = process.env.PORT || 8080; // this sets express to take the environments port rather than hardcoding one - makes things like heroku deployment easier
 
 var app = express();
 
@@ -27,6 +28,8 @@ app.get('/', function (req, res) {
         res.render('index', {token: req.query.access_token});
     }
 });
+
+// simple app.listen - if your app is particularly complex you can keep your db and port config stuff in a config.js file and set it by environments
 app.listen(port, function() {
    console.log('GroupMe Archive - listening on port ' + port);
 })
